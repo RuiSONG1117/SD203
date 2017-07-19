@@ -1,0 +1,28 @@
+{
+  "slides": [
+    {
+      "time": 0,
+      "url": "http://www.telecom-paristech.fr"
+    },
+    {
+      "time": 15,
+      "url": "http://openclassroom.stanford.edu/MainFolder/CoursePage.php?course=MachineLearning"
+    },
+    {
+      "time": 30,
+      "url": "https://perso.telecom-paristech.fr/dufourd/cours/sd203/#/"
+    },
+    {
+      "time": 45,
+      "url": "http://www.w3schools.com/"
+    },
+    {
+      "time": 60,
+      "url": "http://www.mozilla.com"
+    },
+    {
+      "time": 75,
+      "url": "http://www.lemonde.fr/"
+    }
+  ]
+}

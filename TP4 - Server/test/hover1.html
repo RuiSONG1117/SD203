@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Original Hover Effects with CSS3</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Original Hover Effects with CSS3" />
+        <meta name="keywords" content="css3, transitions, thumbnail, animation, hover, effect, description, caption" />
+        <meta name="author" content="Alessio Atzeni for Codrops" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <style>
+        /* CSS reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+    margin:0;
+    padding:0;
+}
+html,body {
+    margin:0;
+    padding:0;
+}
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+fieldset,img { 
+    border:0;
+}
+input{
+    border:1px solid #b0b0b0;
+    padding:3px 5px 4px;
+    color:#979797;
+    width:190px;
+}
+address,caption,cite,code,dfn,th,var {
+    font-style:normal;
+    font-weight:normal;
+}
+ol,ul {
+    list-style:none;
+}
+caption,th {
+    text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-size:100%;
+    font-weight:normal;
+}
+q:before,q:after {
+    content:'';
+}
+abbr,acronym { border:0;
+}
+/* General Demo Style */
+body{
+    /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!back-ground!!!!!*/
+    background:#f9f9f9 url(../images/white_texture.jpg) repeat top left;
+    /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!back-ground!!!!!*/
+    color: #333;
+    font-family: 'Oswald', Arial, sans-serif;
+    font-size: 13px;
+}
+.container{
+    position:relative;
+}
+a{
+    color: #fff;#fff   /*!!!!!!white!!!!!*/
+    text-decoration: none;
+}
+.clr{
+    clear: both;
+}
+.main{
+    position:relative;
+    width: 400px; /*!!!!!! two in a line or one in a line !!!!!*/
+    margin: 0 auto;
+}
+.side img {
+  float: left;
+  margin: 0 0 1em 1em;
+}
+h1{
+    margin:0px;
+    padding:20px 20px 10px 20px;
+    font-size:34px;
+    color:#333;
+    text-shadow:1px 1px 1px #fff;
+    text-align:left;
+    font-weight:400;
+    text-align:center;
+}
+h1 span{
+    display:block;
+    font-size: 14px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color:#b2891b;
+    padding-top:10px;
+}
+
+
+        .view {
+   width: 300px;
+   height: 200px;  /*!!!!!! 改变白色底版的大小 !!!!!*/
+   margin: 10px;   /*!!!!!! 改变底版距离 !!!!!*/
+   float: left;
+   border: 5px solid #fff;      /*!!!!!! 改变边框 !!!!!*/
+   overflow: hidden;
+   position: relative;
+   text-align: center;
+   -webkit-box-shadow: 1px 1px 2px #e6e6e6;
+   -moz-box-shadow: 1px 1px 2px #e6e6e6;
+   box-shadow: 1px 1px 2px #e6e6e6;
+   cursor: default;
+   background: #fff url(../images/bgimg.jpg) no-repeat center center;
+}
+.view .mask,.view .content {
+   width: 300px;
+   height: 200px;       /*!!!!!! 改变鼠标放上去出现的蒙面大小 !!!!!*/
+   position: absolute;      /*?????????????????????????????????????*/
+   overflow: hidden;
+   top: 0;
+   left: 0;
+}
+.view img {
+   display: block;
+   position: relative;
+}
+.view h2 {                  /*!!!!!! 蒙面上的小标题 !!!!!*/
+   text-transform: uppercase;
+   color: #fff;             /*!!!!!! 白色 !!!!!*/
+   text-align: center;
+   position: relative;
+   font-size: 17px;
+   padding: 10px;               /*!!!!!! HOVER STYLE的黑框的宽度 !!!!!*/
+   background: rgba(0, 0, 0, 0.8);          /*!!!!!! 黑色 !!!!!*/
+   margin: 20px 0 0 0;                      /*!!!!!! HOVER STYLE的黑框与蒙面上方的距离 !!!!!*/
+}
+.view p {                   /*!!!!!! 蒙面上的段落 !!!!!*/
+   font-family: Georgia, serif;
+   font-style: italic;
+   font-size: 12px;
+   position: relative;
+   color: #fff;
+   padding: 10px 20px 20px;     /*!!!!!! 蒙面上段落与上方的距离 !!!!!*/
+   text-align: center;
+}
+.view a.info {
+   display: inline-block;
+   text-decoration: none;
+   padding: 7px 14px;       /*!!!!!! read more上的黑色边框大小 !!!!!*/
+   background: #000;        /*!!!!!! 黑色 !!!!!*/
+   color: #fff;
+   text-transform: uppercase;
+   -webkit-box-shadow: 0 0 1px #000;
+   -moz-box-shadow: 0 0 1px #000;
+   box-shadow: 0 0 1px #000;
+}
+.view a.info: hover {
+   -webkit-box-shadow: 0 0 5px #000;
+   -moz-box-shadow: 0 0 5px #000;
+   box-shadow: 0 0 5px #000;
+}
+        .view-first img {
+   -webkit-transition: all 0.2s linear;
+   -moz-transition: all 0.2s linear;
+   -o-transition: all 0.2s linear;
+   -ms-transition: all 0.2s linear;
+   transition: all 0.2s linear;
+}
+.view-first .mask {
+   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+   filter: alpha(opacity=0);
+   opacity: 0;
+   background-color: rgba(0, 51, 153, 0.7);         /*!!!!!! 半透明蒙面的颜色 !!!!!*/
+   -webkit-transition: all 0.4s ease-in-out;
+   -moz-transition: all 0.4s ease-in-out;
+   -o-transition: all 0.4s ease-in-out;
+   -ms-transition: all 0.4s ease-in-out;
+   transition: all 0.4s ease-in-out;
+}
+.view-first h2 {
+   -webkit-transform: translateY(-100px);
+   -moz-transform: translateY(-100px);
+   -o-transform: translateY(-100px);
+   -ms-transform: translateY(-100px);
+   transform: translateY(-100px);
+   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+   filter: alpha(opacity=0);
+   opacity: 0;
+   -webkit-transition: all 0.2s ease-in-out;
+   -moz-transition: all 0.2s ease-in-out;
+   -o-transition: all 0.2s ease-in-out;
+   -ms-transition: all 0.2s ease-in-out;
+   transition: all 0.2s ease-in-out;
+}
+.view-first p {
+   -webkit-transform: translateY(100px);
+   -moz-transform: translateY(100px);
+   -o-transform: translateY(100px);
+   -ms-transform: translateY(100px);
+   transform: translateY(100px);
+   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+   filter: alpha(opacity=0);
+   opacity: 0;
+   -webkit-transition: all 0.2s linear;
+   -moz-transition: all 0.2s linear;
+   -o-transition: all 0.2s linear;
+   -ms-transition: all 0.2s linear;
+   transition: all 0.2s linear;
+}
+.view-first:hover img {
+   -webkit-transform: scale(1.1,1.1);
+   -moz-transform: scale(1.1,1.1);
+   -o-transform: scale(1.1,1.1);
+   -ms-transform: scale(1.1,1.1);
+   transform: scale(1.1,1.1);
+}
+.view-first a.info {
+   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+   filter: alpha(opacity=0);
+   opacity: 0;
+   -webkit-transition: all 0.2s ease-in-out;
+   -moz-transition: all 0.2s ease-in-out;
+   -o-transition: all 0.2s ease-in-out;
+   -ms-transition: all 0.2s ease-in-out;
+   transition: all 0.2s ease-in-out;
+}
+.view-first:hover .mask {
+   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+   filter: alpha(opacity=100);
+   opacity: 1;
+}
+.view-first:hover h2,
+.view-first:hover p,
+.view-first:hover a.info {
+   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+   filter: alpha(opacity=100);
+   opacity: 1;
+   -webkit-transform: translateY(0px);
+   -moz-transform: translateY(0px);
+   -o-transform: translateY(0px);
+   -ms-transform: translateY(0px);
+   transform: translateY(0px);
+}
+.view-first:hover p {
+   -webkit-transition-delay: 0.1s;
+   -moz-transition-delay: 0.1s;
+   -o-transition-delay: 0.1s;
+   -ms-transition-delay: 0.1s;
+   transition-delay: 0.1s;
+}
+.view-first:hover a.info {
+   -webkit-transition-delay: 0.2s;
+   -moz-transition-delay: 0.2s;
+   -o-transition-delay: 0.2s;
+   -ms-transition-delay: 0.2s;
+   transition-delay: 0.2s;
+}
+</style>
+                
+        <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Original Hover Effects <span>with CSS3 Transitions and Animations</span></h1>
+            <div class="main">
+                <div class="view view-first">
+                    <img src="images/1.jpg" />
+                    <div class="mask">
+                        <h2>Hover Style #1</h2>
+                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                        <a href="#" class="info">Read More</a>
+                    </div>
+                </div>  
+                <div class="view view-first">
+                    <img src="images/2.jpg" />
+                    <div class="mask">
+                        <h2>Hover Style #1</h2>
+                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                        <a href="#" class="info">Read More</a>
+                    </div>
+                </div>  
+                <div class="view view-first">
+                    <img src="images/3.jpg" />
+                    <div class="mask">
+                        <h2>Hover Style #1</h2>
+                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                        <a href="#" class="info">Read More</a>
+                    </div>
+                </div>  
+                <div class="view view-first">
+                    <img src="images/4.jpg" />
+                    <div class="mask">
+                        <h2>Hover Style #1</h2>
+                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                        <a href="#" class="info">Read More</a>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </body>
+</html>
